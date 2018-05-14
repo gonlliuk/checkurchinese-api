@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    container_name: checkurchinese
+    restart: always
+    build: .
+    environment:
+      - MONGODB_DB=checkurchinese
+      - MONGODB_HOST=mongodb://mongo
+    ports:
+      - 5000:5000
+    links:
+      - mongo
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - /Users/gonlliuk/Mongo/data:/data/db
+    ports:
+      - 27017:27017
