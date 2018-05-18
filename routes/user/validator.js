@@ -2,7 +2,7 @@ const joi = require('joi');
 const validate = require('../../middlewares/validate');
 
 const sessionSchema = {
-    uuid: joi.string().min(6).max(10).required(),
+    uuid: joi.string().required(),
 };
 
 const patchUserSchema = {

@@ -6,7 +6,7 @@ const getQuestionSchema = {
 };
 
 const getPageSchema = {
-    pageId: joi.string().min(6).max(12).required(),
+    pageId: joi.string().required(),
 };
 
 const updatePageSchema = {

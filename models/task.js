@@ -29,12 +29,15 @@ const taskSchema = new mongoose.Schema({
     },
     text: {
         type: String,
+        default: '',
     },
     additionalQuestion: {
         type: String,
+        default: '',
     },
     comment: {
         type: String,
+        default: '',
     },
     questions: [questionSchema],
 });

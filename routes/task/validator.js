@@ -16,12 +16,12 @@ const deleteTaskSchema = {
 
 const updateTaskSchema = {
     id: joi.string().optional(),
-    blockId: joi.string().required(),
     title: joi.string().required(),
-    text: joi.string().optional(),
-    additionalQuestion: joi.string().optional(),
-    comment: joi.string().optional(),
-    questions: joi.array().required(),
+    blockId: joi.string().required(),
+    text: joi.string().optional().empty(''),
+    additionalQuestion: joi.string().empty(''),
+    comment: joi.string().optional().empty(''),
+    questions: joi.array().optional().empty(''),
 };
 
 class Validator {
