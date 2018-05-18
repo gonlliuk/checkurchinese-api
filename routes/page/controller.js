@@ -11,6 +11,12 @@ class Page {
 
     getPages(req, res) {
         return this.models.page.find({})
+            .populate({
+                path: 'blocks',
+                populate: {
+                    path: 'tasks',
+                },
+            })
             .select('-_id -__v')
             .then(pages => res.json(pages))
             .catch(error => res.error(error));
@@ -19,6 +25,12 @@ class Page {
     getPageById(req, res) {
         return this.models.page
             .findOne({ id: req.params.pageId })
+            .populate({
+                path: 'blocks',
+                populate: {
+                    path: 'tasks',
+                },
+            })
             .select('-_id -__v')
             .then(page => {
                 if (!page) { return res.error(404); }

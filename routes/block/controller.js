@@ -11,7 +11,11 @@ class Block {
     }
 
     getBlocks(req, res) {
-        return this.models.block.find({})
+        return this.models.block
+            .find({})
+            .populate({
+                path: 'tasks',
+            })
             .select('-_id -__v')
             .then(blocks => res.json(blocks))
             .catch(error => res.error(error));
@@ -20,7 +24,12 @@ class Block {
     getBlocksByPageId(req, res) {
         return this.models.page
             .findOne({ id: req.params.pageId })
-            .populate('blocks')
+            .populate({
+                path: 'blocks',
+                populate: {
+                    path: 'tasks',
+                },
+            })
             .select('-_id -__v')
             .then(page => {
                 if (!page) { return res.error(404); }
@@ -33,6 +42,9 @@ class Block {
     getBlockById(req, res) {
         return this.models.block
             .findOne({ id: req.params.blockId })
+            .populate({
+                path: 'tasks',
+            })
             .select('-_id -__v')
             .then(block => {
                 if (!block) { return res.error(404); }
