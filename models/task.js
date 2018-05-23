@@ -16,12 +16,10 @@ const taskSchema = new mongoose.Schema({
     id: {
         type: String,
         unique: true,
-        index: true,
         default: id.generate,
     },
     blockId: {
         type: String,
-        index: true,
     },
     title: {
         type: String,

@@ -15,13 +15,11 @@ const blockSchema = new mongoose.Schema({
     id: {
         type: String,
         unique: true,
-        index: true,
         default: id.generate,
     },
     pageId: {
         type: String,
         request: true,
-        index: true,
     },
     title: {
         type: String,

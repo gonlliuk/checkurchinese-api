@@ -15,7 +15,6 @@ const pageSchema = new mongoose.Schema({
     id: {
         type: String,
         unique: true,
-        index: true,
         default: id.generate,
     },
     title: {

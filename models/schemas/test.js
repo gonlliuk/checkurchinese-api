@@ -8,7 +8,6 @@ const answerSchema = new mongoose.Schema({
     id: {
         type: String,
         unique: true,
-        index: true,
         default: id.generate,
     },
     answer: {
