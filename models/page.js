@@ -22,7 +22,7 @@ const pageSchema = new mongoose.Schema({
         default: ''
     },
     blocks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Block' }],
-});
+}, { autoIndex: false });
 
 pageSchema.pre('save', function (next) {
     this.updatedAt = moment();

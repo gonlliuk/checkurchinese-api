@@ -26,7 +26,7 @@ const blockSchema = new mongoose.Schema({
         required: true,
     },
     tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }],
-});
+}, { autoIndex: false });
 
 blockSchema.pre('save', function (next) {
     this.updatedAt = moment();

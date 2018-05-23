@@ -38,7 +38,7 @@ const taskSchema = new mongoose.Schema({
         default: '',
     },
     questions: [questionSchema],
-});
+}, { autoIndex: false });
 
 taskSchema.pre('save', function (next) {
     this.updatedAt = moment();

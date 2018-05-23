@@ -18,7 +18,7 @@ const answerSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-});
+}, { autoIndex: false });
 
 const testSchema = new mongoose.Schema({
     createdAt: {
@@ -39,7 +39,7 @@ const testSchema = new mongoose.Schema({
         required: true,
     },
     answers: [answerSchema],
-});
+}, { autoIndex: false });
 
 testSchema.pre('save', function (next) {
     this.updatedAt = moment();

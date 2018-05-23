@@ -8,7 +8,7 @@ const videoSchema = new mongoose.Schema({
     url: {
         type: String,
     },
-});
+}, { autoIndex: false });
 
 
 const questionSchema = new mongoose.Schema({
@@ -35,7 +35,7 @@ const questionSchema = new mongoose.Schema({
         default: true,
     },
     test: [testSchema],
-});
+}, { autoIndex: false });
 
 questionSchema.pre('save', function (next) {
     this.updatedAt = moment();
