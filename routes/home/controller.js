@@ -20,11 +20,15 @@ class Home {
 
         return this.models.home
             .create({ title, welcome, text })
-            .select('-_id -__v')
             .then(home => {
                 if (!home) { res.error(500); }
 
-                return res.json(home);
+                return res.json({
+                    id: home.id,
+                    title: home.title,
+                    welcome: home.welcome,
+                    text: home.text,
+                });
             })
             .catch(error => res.error(error));
     }
