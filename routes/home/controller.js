@@ -34,10 +34,10 @@ class Home {
     }
 
     patchHome(req, res) {
-        const { title } = req.body;
+        const { title, welcome, text } = req.body;
 
         return this.models.home
-            .findOneAndUpdate({ id: req.params.homeId }, { title }, { new: true })
+            .findOneAndUpdate({ id: req.params.homeId }, { title, welcome, text }, { new: true })
             .select('-_id -__v')
             .then(home => {
                 if (!home) { return res.error(404); }
