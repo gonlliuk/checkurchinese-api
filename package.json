@@ -63,6 +63,7 @@
     "eslint-plugin-import": "^2.9.0",
     "ghooks": "^2.0.2",
     "jest": "^22.3.0",
+    "nodemon": "^1.17.5",
     "superagent": "^3.8.2",
     "supertest": "^3.0.0"
   }

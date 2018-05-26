@@ -1,34 +1,28 @@
 const joi = require('joi');
 const validate = require('../../middlewares/validate');
 
-const getQuestionSchema = {
-    pageId: joi.string().required(),
+const getHomeSchema = {
+    homeId: joi.string().required(),
 };
 
-const getPageSchema = {
-    pageId: joi.string().required(),
-};
-
-const updatePageSchema = {
+const updateHomeSchema = {
     id: joi.string().optional(),
     title: joi.string().required(),
+    welcome: joi.string().optional(),
+    text: joi.string().optional(),
 };
 
 class Validator {
-    static createPage() {
-        return validate(updatePageSchema);
+    static createHome() {
+        return validate(updateHomeSchema);
     }
 
-    static getPageById() {
-        return validate(getPageSchema);
+    static deleteHome() {
+        return validate(getHomeSchema);
     }
 
-    static deletePage() {
-        return validate(getQuestionSchema);
-    }
-
-    static patchPage() {
-        return validate(updatePageSchema);
+    static patchHome() {
+        return validate(updateHomeSchema);
     }
 }
 
