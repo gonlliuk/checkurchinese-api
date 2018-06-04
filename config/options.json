@@ -14,6 +14,8 @@
     "MONGODB": {
         "DB": "checkurchinese",
         "HOST": "mongodb://localhost:27017",
+        "USER": "",
+        "PASSWORD": "",
         "OPTIONS": {
             "autoReconnect": true,
             "reconnectTries": 1000,
