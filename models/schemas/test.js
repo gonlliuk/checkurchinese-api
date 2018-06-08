@@ -12,7 +12,7 @@ const answerSchema = new mongoose.Schema({
     },
     answer: {
         type: String,
-        required: true,
+        default: '',
     },
     isCorrect: {
         type: Boolean,
@@ -36,7 +36,7 @@ const testSchema = new mongoose.Schema({
     },
     question: {
         type: String,
-        required: true,
+        default: '',
     },
     answers: [answerSchema],
 }, { autoIndex: false });
